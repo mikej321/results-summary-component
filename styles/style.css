@@ -38,6 +38,7 @@ html {
 body {
     font-size: 1.6rem;
     display: flex;
+    gap: 2rem;
     min-height: 100vh;
     flex-direction: column;
     font-family: var(--Hanken-Grotesk);
@@ -51,15 +52,26 @@ img {
     object-fit: cover;
 }
 
+span {
+    color: hsla(224, 30%, 27%, 0.7);
+}
+
+button {
+    cursor: pointer;
+}
+
 .container {
     display: grid;
     justify-content: center;
     grid-template-columns: 37.5rem;
     width: 100%;
-    
+    grid-template-areas: 'dashboard'
+                         'summary';
+                         
 }
 
 .results-dashboard {
+    grid-area: dashboard;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -70,7 +82,7 @@ img {
     font-size: 1.8rem;
     padding-block: 2rem 4rem;
     padding-inline: 6rem;
-    border-radius: 0 0 4rem 4rem;
+    border-radius: 0 0 2rem 2rem;
 }
 
 .results-dashboard p:nth-child(1) {
@@ -110,6 +122,7 @@ img {
 }   
 
 .results-summary {
+    grid-area: summary;
     display: flex;
     flex-direction: column;
     color: black;
@@ -121,6 +134,7 @@ img {
     color: var(--neutral-dark-gray-blue);
     font-size: 1.8rem;
     font-weight: 600;
+    margin-bottom: 1rem;
 }
 
 
@@ -180,6 +194,7 @@ img {
 .pane-visual {
     background: hsla(234, 85%, 45%, 0.05);
     border: 1px solid hsla(234, 85%, 45%, 0.05);
+    margin-bottom: 1.5rem;
 }
 
 .caption-visual {
@@ -202,4 +217,61 @@ img {
     font-family: inherit;
     letter-spacing: 0.3px;
     border-radius: 3rem;
+    border: none;
+}
+
+.results-summary button:active {
+    background: linear-gradient(10deg,
+                var(--grad-light-royal-blue-background),
+                var(--grad-light-slate-blue-background));
+}
+
+@media screen and (min-width: 576px) {
+
+    body {
+        justify-content: center;
+    }
+
+    .container {
+        grid-template-columns: repeat(2, 325px);
+        grid-template-areas: "dashboard summary";
+        position: relative;
+    }
+
+    .results-dashboard {
+        border-radius: 2.5rem;
+        z-index: 1;
+        padding: 2.5rem 4rem;
+        gap: 2.7rem;
+        background: linear-gradient(10deg,
+                    var(--grad-light-royal-blue-background),
+                    var(--grad-light-slate-blue-background));
+        };
+    
+    .score {
+            
+    }
+                
+    .results-dashboard p:last-child {
+        text-align: center;
+    }
+    
+    .results-summary {
+        border-radius: 0 2.5rem 2.5rem 0;
+        box-shadow: 5px 5px 15px hsla(234, 85%, 45%, 0.1);
+        position: relative;
+        right: 2rem;
+        padding: 2.5rem 3rem 2.5rem 5rem;
+        gap: 1.5rem;
+    }
+
+    .summary-pane {
+        padding: 1.25rem;
+    }
+
+    .results-summary button {
+        cursor: pointer;
+        padding: 1rem;
+    }   
+
 }
