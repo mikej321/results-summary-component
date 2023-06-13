@@ -63,8 +63,8 @@ button {
 .container {
     display: grid;
     justify-content: center;
-    grid-template-columns: 37.5rem;
-    width: 100%;
+    grid-template-columns: minmax(35rem, 37.5rem);
+    max-width: 100%;
     grid-template-areas: 'dashboard'
                          'summary';
                          
@@ -233,7 +233,7 @@ button {
     }
 
     .container {
-        grid-template-columns: repeat(2, 325px);
+        grid-template-columns: repeat(2, minmax(275px, 315px));
         grid-template-areas: "dashboard summary";
         position: relative;
     }
@@ -258,7 +258,7 @@ button {
     
     .results-summary {
         border-radius: 0 2.5rem 2.5rem 0;
-        box-shadow: 5px 5px 15px hsla(234, 85%, 45%, 0.1);
+        box-shadow: 15px 15px 30px hsla(234, 85%, 45%, 0.1);
         position: relative;
         right: 2rem;
         padding: 2.5rem 3rem 2.5rem 5rem;
